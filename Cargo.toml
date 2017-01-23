@@ -4,8 +4,11 @@ version = "0.1.0"
 authors = ["Taryn Hill <taryn@phrohdoh.com>"]
 
 [dependencies]
-rocket = "0.1.5"
-rocket_codegen = "0.1.5"
+# TODO: Upgrade to rocket 0.2 once it is released
+rocket = { git = "https://github.com/SergioBenitez/Rocket.git", rev = "c81591170554bf70304390325657c6f2108e9c24" }
+rocket_codegen = { git = "https://github.com/SergioBenitez/Rocket.git", rev = "c81591170554bf70304390325657c6f2108e9c24" }
+
 diesel = "0.9.0"
 diesel_codegen = { version = "0.9.0", features = ["postgres"] }
+
 dotenv = "0.8.0"

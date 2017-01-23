@@ -1,6 +1,7 @@
-#![feature(plugin)]
-#![feature(custom_derive)]
+#![feature(plugin, custom_derive)]
 #![plugin(rocket_codegen)]
+
+use std::net::SocketAddr;
 
 extern crate rocket;
 
@@ -38,9 +39,10 @@ pub struct PingData<'pd> {
     pub new: Option<u8>, // 1 => true, 0 => false
 }
 
-#[get("/ping?<ping_data>")]
-fn ping(ping_data: PingData) {
-    println!("{:?}", ping_data);
+#[get("/ping?<data>")]
+fn ping(data: PingData, addr: SocketAddr) {
+    println!("{:?}", data);
+    println!("{:?}", addr);
 }
 
 fn main() {
